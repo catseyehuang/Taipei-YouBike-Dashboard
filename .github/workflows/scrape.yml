@@ -34,9 +34,11 @@ jobs:
         run: python scraper.py
 
       - name: 5. 檢查變動並自動推回 GitHub 儲存庫
+        env:
+          TZ: Asia/Taipei   # 強制 Bash 環境使用台灣時區
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action Bot"
           git add data/history_data.csv
           # 防護機制：只有在檔案確實有寫入變動時才進行 commit，避免產生空 commit 錯誤
-          git diff --quiet && git diff --staged --quiet || (git commit -m "📊 歷史數據自動增量更新: $(date +'%Y-%m-%d %H:%M:%S')" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "📊 Historical data updated: $(date +'%Y-%m-%d %H:%M:%S')" && git push)
