@@ -7,6 +7,11 @@ on:
 
 permissions:
   contents: write         # 關鍵：赋予 GitHub Bot 寫入並 commit 檔案回儲存庫的權限
+    
+
+# 強制 GitHub 使用最新的 Node.js 24 環境來消除警告
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   build_and_scrape:
