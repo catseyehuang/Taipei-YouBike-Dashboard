@@ -1,8 +1,8 @@
 name: YouBike Data Chronicler
 
 on:
-  schedule:
-    - cron: '*/5 * * * *' # 鬧鐘設定：每 5 分鐘自動執行一次
+  #schedule:
+  #  - cron: '*/5 * * * *' # 鬧鐘設定：每 5 分鐘自動執行一次
   workflow_dispatch:      # 允許手動在 GitHub Actions 頁面點擊執行測試
 
 permissions:
